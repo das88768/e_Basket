@@ -206,7 +206,7 @@
             </div>
         </div> <!-- row.// -->
         <hr>
-        <a href="#" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+        <button class="btn  btn-primary cart" id="pr{{ product.id }}"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </button>
     </article> <!-- product-info-aside .// -->
             </main> <!-- col.// -->
         </div> <!-- row.// -->
@@ -249,5 +249,45 @@
     
     </div> <!-- container .//  -->
     </section>
+
+{% endblock %}
+
+{% block js %}
+<!-- javascript to add shoping cart and handle all cart related functions -->
+<script>
+    console.log("Working");
+
+    // initialize the cart if the cart is empty
+    if(localStorage.getItem('cart') == null){
+      var cart = {};
+    }
+    else{
+      cart = JSON.parse(localStorage.getItem('cart'));
+      document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    }
+    
+    // script function which track the id 'cart' and update the stored value 
+    $('.cart').click(function(){
+        console.log('clicked');
+        var idstr = this.id.toString();
+        console.log(idstr);
+
+        // if the clicked product does not in cart then add it
+        if(cart[idstr] != undefined){
+            cart[idstr] = cart[idstr] + 1;
+        }
+
+        // if the product is already present increment the quantity.
+        else{
+            cart[idstr] = 1;
+        }
+        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // display the number of products in the cart
+        document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    });
+
+  </script>
 
 {% endblock %}

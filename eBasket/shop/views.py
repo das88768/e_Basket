@@ -27,6 +27,9 @@ def search_product(request):
 
 def track_order(request):
     return HttpResponse("This is track page.")
+    
+def cart(request):
+    return render(request, "cart.html")
 
 def checkout(request):
     return HttpResponse("This is checkout page.")
