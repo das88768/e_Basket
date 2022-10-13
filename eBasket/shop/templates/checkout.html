@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} checkout - eBasket {% endblock %}
+
+{% block page_style %}
+
+<style>
+    .img-sm {
+        width: 80px;
+        height: 80px;
+    }
+    .itemside {
+        position: relative;
+        display: flex;
+        width: 100%;
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<section class="section-content padding-y bg">
+    <div class="container">
+    
+    
+    
+    <!-- ============================ COMPONENT 2 ================================= -->
+    <div class="row">
+        <main class="col-md-8">
+    
+    <article class="card mb-4">
+    <div class="card-body">
+        <h4 class="card-title mb-4">Contact Information</h4>
+        <form action="">
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label>Name</label>
+                    <input type="text" placeholder="name" class="form-control">
+                </div>
+                <!-- <div class="form-group col-sm-6">
+                    <label>Last name</label>
+                    <input type="text" placeholder="Type here" class="form-control">
+                </div> -->
+                <div class="form-group col-sm-6">
+                    <label>Mobile No.</label>
+                    <input type="text" value="+91" class="form-control">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label>Email</label>
+                    <input type="email" placeholder="example@gmail.com" class="form-control">
+                </div>
+            </div> <!-- row.// -->	
+        </form>
+    </div> <!-- card-body.// -->
+    </article> <!-- card.// -->
+    
+    
+    <article class="card mb-4">
+    <div class="card-body">
+        <h4 class="card-title mb-4">Shipping Information</h4>
+        <form action="">
+                
+    
+            <div class="row">
+                    <div class="form-group col-sm-8">
+                        <label>Address*</label>
+                        <input type="text" name="address" placeholder="address.." class="form-control">
+                    </div>
+                    <div class="form-group col-sm-8">
+                        <label>City*</label>
+                        <input type="text" name="city" placeholder="city.." class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label>State*</label>
+                        <input type="text" name="state" placeholder="state.." class="form-control">
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label>Zipcode*</label>
+                        <input type="text" name="zipcode" placeholder="zipcode.." class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label>Country*</label>
+                        <select name="country" class="form-control">
+                            <option value="">India</option>
+                            <option value="">United States</option>
+                            <option value="">France</option>
+                            <option value="">Italy</option>
+                        </select>
+                    </div>
+                    <!-- <div class="form-group col-sm-4">
+                        <label>Building</label>
+                        <input type="text" placeholder="" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label>House</label>
+                        <input type="text" placeholder="Type here" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label>Postal code</label>
+                        <input type="text" placeholder="" class="form-control">
+                    </div> -->
+            </div> <!-- row.// -->
+            <hr>
+            <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">	
+        </form>
+
+        <br>
+        <div class="box-element hidden" id="payment-info">
+            <small>Paypal Options</small>
+        </div>
+    </div> <!-- card-body.// -->
+    </article> <!-- card.// -->
+    
+    <!-- accordion end.// -->
+      
+            </main> <!-- col.// -->
+            <aside class="col-md-4">
+                <div class="card">
+            <div class="card-body">
+                <div class="box-element">
+                    <a  class="btn btn-outline-dark" href="/shop/cart/">&#x2190; Back to Cart</a>
+                    <hr>
+                    <h3>Order Summary</h3>
+                    <hr>
+                    {% for item in items %}
+                    <div class="cart-row">
+                        <figure class="itemside  mb-4">
+                            <div><img class="row-image img-sm" src="/media/{{item.product.image}}"></div>
+                            <figcaption>
+                                <div><p>{{ item.product.product_name }}</p></div>
+                                <div><p>x{{ item.quantity }}  =  <i class="fa-solid fa-indian-rupee-sign"></i>{{ item.product.price }}</p></div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    {% endfor %}
+                    <hr>
+                    <h5>Items: {{ order.get_cart_items }}</h5>
+                    <h5>Tax: <i class="fa-solid fa-indian-rupee-sign"></i>36.00</h5>
+                    <h5>Total: <i class="fa-solid fa-indian-rupee-sign"></i>{{ order.total_amount_with_tax }}</h5>
+                </div>
+
+                <!-- <hr>
+                <p class="text-center mb-3">
+                    <img src="./images/misc/payments.png" height="26">
+                </p>
+                <a href="./place-order.html" class="btn btn-primary btn-block"> Place Order </a> -->
+                
+            </div> <!-- card-body.// -->
+            </div> <!-- card.// -->
+            </aside> <!-- col.// -->
+        </div> <!-- row.// -->
+    
+        <!-- ============================ COMPONENT 2 END//  ================================= -->
+    </div> <!-- container .//  -->
+</section>
+
+{% endblock %}

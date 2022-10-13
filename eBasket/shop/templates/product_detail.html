@@ -206,7 +206,7 @@
             </div>
         </div> <!-- row.// -->
         <hr>
-        <button class="btn  btn-primary cart" id="pr{{ product.id }}"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </button>
+        <button data-product="{{ product.id }}" data-action="add" class="btn  btn-primary cart update-cart" id="pr{{ product.id }}"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </button>
     </article> <!-- product-info-aside .// -->
             </main> <!-- col.// -->
         </div> <!-- row.// -->
@@ -252,9 +252,9 @@
 
 {% endblock %}
 
-{% block js %}
+
 <!-- javascript to add shoping cart and handle all cart related functions -->
-<script>
+<!-- <script>
     console.log("Working");
 
     // initialize the cart if the cart is empty
@@ -288,6 +288,16 @@
         document.getElementById('cart').innerHTML = Object.keys(cart).length;
     });
 
-  </script>
+    display_cart_products(cart);
+    function display_cart_products(cart){
+        console.log('Display cart products function  starts here...');
+        var popStr = "";
 
-{% endblock %}
+        for(var item in cart){
+          popStr = popStr + document.getElementById('name' + item).innerHTML + " Qty: " + cart[item];
+        //   console.log(popStr);
+        }
+    }
+
+  </script> -->
+
