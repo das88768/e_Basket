@@ -15,6 +15,9 @@
         display: flex;
         width: 100%;
     }
+    .hidden {
+        display: none !important;
+    }
 </style>
 
 {% endblock %}
@@ -31,7 +34,7 @@
         <main class="col-md-8">
     
     <article class="card mb-4">
-    <div class="card-body">
+    <div class="card-body" id="contact-info">
         <h4 class="card-title mb-4">Contact Information</h4>
         <form action="">
             <div class="row">
@@ -60,7 +63,7 @@
     <article class="card mb-4">
     <div class="card-body">
         <h4 class="card-title mb-4">Shipping Information</h4>
-        <form action="">
+        <form action="" id="form">
                 
     
             <div class="row">
@@ -82,12 +85,7 @@
                     </div>
                     <div class="form-group col-sm-6">
                         <label>Country*</label>
-                        <select name="country" class="form-control">
-                            <option value="">India</option>
-                            <option value="">United States</option>
-                            <option value="">France</option>
-                            <option value="">Italy</option>
-                        </select>
+                        <input type="text" name="country" placeholder="country.." class="form-control">
                     </div>
                     <!-- <div class="form-group col-sm-4">
                         <label>Building</label>
@@ -105,12 +103,16 @@
             <hr>
             <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">	
         </form>
-
-        <br>
-        <div class="box-element hidden" id="payment-info">
-            <small>Paypal Options</small>
-        </div>
     </div> <!-- card-body.// -->
+    </article> <!-- card.// -->
+
+    <article class="card mb-4">
+        <div class="card-body hidden" id="payment-info">
+            <div class="box-element">
+                <small>Paypal Options</small>
+                <button type="button" class="btn" id="make-payment">Make Payment</button>
+            </div>
+        </div> <!-- card-body.// -->
     </article> <!-- card.// -->
     
     <!-- accordion end.// -->
@@ -155,5 +157,85 @@
         <!-- ============================ COMPONENT 2 END//  ================================= -->
     </div> <!-- container .//  -->
 </section>
+
+{% endblock %}
+
+{% block js %}
+
+<script type="text/javascript">
+
+    var user = '{{request.user}}'
+    var total = '{{ order.get_cart_total }}'
+
+    if (user != 'AnonymousUser'){
+        document.getElementById('contact-info').innerHTML = ''
+    }
+
+    var form = document.getElementById('form')
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault()
+        console.log("Form submitted...")
+        console.log("user:", user)
+
+        document.getElementById('form-button').classList.add('hidden')
+        document.getElementById('payment-info').classList.remove('hidden')
+    })
+
+
+    document.getElementById('make-payment').addEventListener('click', function(e){
+        submitFormData()
+    })
+
+    function submitFormData(){
+        console.log("Payment Button clicked")
+
+        var userFormData = {
+            'name' : null,
+            'email' : null,
+            'mobile_no' : null,
+            'total': total
+        }
+
+        var shippingInfo = {
+            'address' : null,
+            'city' : null,
+            'state' : null,
+            'zipcode' : null,
+            'country' : null
+        }
+
+        if (user == 'AnonymousUser'){
+            userFormData.name = form.name.value
+            userFormData.email = form.email.value 
+        }
+
+        shippingInfo.address = form.address.value
+        shippingInfo.city = form.city.value
+        shippingInfo.state = form.state.value
+        shippingInfo.zipcode = form.zipcode.value
+        shippingInfo.country = form.country.value
+
+
+        var url = '/shop/process_order/'
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json',
+                'X-CSRFToken' : csrftoken,
+            },
+            body: JSON.stringify({'form':userFormData, 'shipping':shippingInfo})
+        })
+
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Success:', data);
+            alert('Transaction Completed');
+            window.location.href = "{% url 'Home' %}"
+        })
+
+    }
+
+</script>
 
 {% endblock %}
