@@ -58,7 +58,7 @@ ROOT_URLCONF = 'eBasket.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['eBasket/shop/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
