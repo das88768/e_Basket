@@ -12,4 +12,7 @@ urlpatterns = [
 
     path("update-item/", views.updateItem, name="update-item"),
     path("process_order/", views.processOrder, name="process_order"),
+
+    path("register/", views.registerPage, name="register"),
+    path("login/", views.loginPage, name="login"),
 ]

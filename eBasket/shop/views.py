@@ -1,9 +1,13 @@
+from email import message
 from multiprocessing import context
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import *
 import json
 import datetime
+from django.contrib.auth.forms import UserCreationForm
+from .forms import CreateUserForm
+from django.contrib import messages
 
 # Create your views here.
 # create the view of 'home page' page
@@ -163,3 +167,21 @@ def processOrder(request):
         print("Customer is not logged in!")
 
     return JsonResponse("Payment completed!", safe=False)
+
+def registerPage(request):
+    form = CreateUserForm()
+
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get("username")
+            messages.success(request, f"Profile is created for {user}")
+            return redirect('login')
+
+    context = {'form' : form}
+    return render(request, "register.html", context)
+
+def loginPage(request):
+    context = {}
+    return render(request, "login.html", context)

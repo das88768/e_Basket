@@ -24,5 +24,8 @@ urlpatterns = [
 
     # Fetch all the urls from the main app 'shop'.
     path('shop/', include("shop.urls")),
+
+    # connects the host server with the home page
     path('', views.index),
+    
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
