@@ -90,6 +90,14 @@
       .border-bottom {
         border-bottom: 1px solid #e4e4e4 !important;
       }
+      .userinfo {
+        padding-right: 10px;
+        font-style: italic;
+      }
+      .log-inout {
+        text-decoration: none;
+        font-style: italic;
+      }
 
       /* css for the cart component starts here*/
       .widget-header {
@@ -183,17 +191,17 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" style="position: absolute;left: 478px;">
+        <form class="form-inline my-2 my-lg-0" style="position: absolute;left: 371px;">
           <input id="search_bar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button id="search_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
 
         {% if request.user.is_anonymous == True %}
-          <span>Hello, Guest</span>
-          <span><a href="{% url 'login' %}">Login</a></span>
+          <span class="userinfo">Hello, Guest</span>
+          <span class="log-inout"><a href="{% url 'login' %}">Login</a></span>
         {% else %}
-          <span>Hello, {{ request.user }}</span>
-          <span><a href="{% url 'logout' %}">Logout</a></span>
+          <span class="userinfo">Hello, {{ request.user }}</span>
+          <span class="log-inout"><a href="{% url 'logout' %}">Logout</a></span>
         {% endif %}
 
         <!-- cart icon and its logic -->
