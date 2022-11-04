@@ -188,6 +188,14 @@
           <button id="search_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
 
+        {% if request.user.is_anonymous == True %}
+          <span>Hello, Guest</span>
+          <span><a href="{% url 'login' %}">Login</a></span>
+        {% else %}
+          <span>Hello, {{ request.user }}</span>
+          <span><a href="{% url 'logout' %}">Logout</a></span>
+        {% endif %}
+
         <!-- cart icon and its logic -->
         <div class="cart-container">
           <a href="/shop/cart" class="widget-header pl-3 ml-3">
