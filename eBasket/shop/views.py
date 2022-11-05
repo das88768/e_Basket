@@ -208,3 +208,18 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
+def fasionPage(request):
+    return render(request, 'fashion.html')
+
+def electronicsPage(request):
+    return render(request, 'electronics.html')
+
+def mobilesPage(request):
+    return render(request, 'mobiles.html')
+
+def booksPage(request):
+    return render(request, 'books.html')
+
+def home_accessories_and_furniturePage(request):
+    return render(request, 'homedeco.html')
