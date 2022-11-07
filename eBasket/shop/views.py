@@ -210,7 +210,25 @@ def logoutUser(request):
     return redirect('login')
 
 def fasionPage(request):
-    return render(request, 'fashion.html')
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+
+    products = Product.objects.filter(category__name = "Fashion")
+    # category = Category.objects.filter(name="Fashion")
+ 
+    context = {
+        'product' : products,
+        'cartItems' : cartItems,
+        # 'category' : category
+    }
+    return render(request, 'fashion.html', context)
 
 def electronicsPage(request):
     return render(request, 'electronics.html')

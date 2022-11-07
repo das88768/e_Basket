@@ -1,0 +1,86 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+  .padding-y-sm {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+  .container {
+    max-width: 1200px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.img-wrap {
+    border-radius: 0.2rem 0.2rem 0 0;
+    height: 220px;
+    text-align: center;
+}
+  .img-wrap img {
+    height: 100%;
+    max-width: 100%;
+    width: auto;
+    display: inline-block;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .rounded {
+    border-radius: 12.375px !important;
+  }
+  .card-product-grid {
+    margin-bottom: 20px;
+  }
+  .info-wrap {
+    overflow: hidden;
+    padding: 18px 20px;
+  }
+  a.title {
+    color: #212529;
+    display: block;
+    text-decoration: none;
+    font-family: "Inter", Arial, "Helvetica Neue", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: transparent;
+  }
+  a.title:hover {
+    color: #d1481f;
+  }
+  .price {
+    font-weight: 600;
+    color: #212529;
+    font-family: "Inter", Arial, "Helvetica Neue", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  .section-title {
+    color: #212529;
+    font-size: 1.75rem;
+    margin-left: 5px;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    line-height: 1.3;
+    font-family: "Inter", Arial, "Helvetica Neue", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  .footer-bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .border-top {
+    border-top: 1px solid #e4e4e4 !important;
+  }
+  .text-muted {
+    color: #969696 !important;
+  }
+  body {
+    font-family: "Inter", Arial, "Helvetica Neue", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  .card-product-grid:hover {
+    box-shadow: 0px 4px 15px rgb(153 153 153 / 30%);
+    transition: 0.3s;
+  }
+  .d-block {
+    border-radius: 8px;
+  }
+  .border-bottom {
+    border-bottom: 1px solid #e4e4e4 !important;
+  }
