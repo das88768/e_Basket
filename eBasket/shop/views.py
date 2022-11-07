@@ -221,23 +221,95 @@ def fasionPage(request):
         cartItems = order['get_cart_items']
 
     products = Product.objects.filter(category__name = "Fashion")
-    # category = Category.objects.filter(name="Fashion")
+    category = Category.objects.all()
  
     context = {
         'product' : products,
         'cartItems' : cartItems,
-        # 'category' : category
+        'category' : category
     }
     return render(request, 'fashion.html', context)
 
 def electronicsPage(request):
-    return render(request, 'electronics.html')
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+
+    products = Product.objects.filter(category__name = "Electronics")
+    category = Category.objects.all()
+ 
+    context = {
+        'product' : products,
+        'cartItems' : cartItems,
+        'category' : category
+    }
+    return render(request, 'electronics.html', context)
 
 def mobilesPage(request):
-    return render(request, 'mobiles.html')
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+
+    products = Product.objects.filter(category__name = "Mobiles")
+    category = Category.objects.all()
+ 
+    context = {
+        'product' : products,
+        'cartItems' : cartItems,
+        'category' : category
+    }
+    return render(request, 'mobiles.html', context)
 
 def booksPage(request):
-    return render(request, 'books.html')
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+
+    products = Product.objects.filter(category__name = "Books")
+    category = Category.objects.all()
+ 
+    context = {
+        'product' : products,
+        'cartItems' : cartItems,
+        'category' : category
+    }
+    return render(request, 'books.html', context)
 
 def home_accessories_and_furniturePage(request):
-    return render(request, 'homedeco.html')
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+
+    products = Product.objects.filter(category__name = "Home_Accessories_and_Furnitures")
+    category = Category.objects.all()
+ 
+    context = {
+        'product' : products,
+        'cartItems' : cartItems,
+        'category' : category
+    }
+    return render(request, 'homedeco.html', context)

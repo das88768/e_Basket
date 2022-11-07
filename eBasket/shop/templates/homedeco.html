@@ -1,1 +1,38 @@
-<h1>Home and furniture product page</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home Accessories and Furnitures-category - eBasket {% endblock %}
+
+
+{% block category_page_style %}
+<link rel="stylesheet" href="{% static 'css/category-style.css' %}">
+{% endblock %}
+
+
+
+{% block body %}
+<!-- Row of items -->
+<section class="section-name padding-y-sm">
+    <div class="container">
+    
+    <header class="section-heading">
+      <a href="./store.html" class="btn btn-outline-primary float-right">See all</a>
+      <h3 class="section-title">Home Accessories and Furnitures products</h3>
+    </header><!-- sect-heading -->
+    
+    <div class="row">
+      {% for i in product %}
+      <div class="col-md-3">
+        <div class="card card-product-grid">
+          <a href="/shop/product_detail/{{ i.id }}" class="img-wrap"> <img src="/media/{{i.image}}"> </a>
+          <figcaption class="info-wrap">
+            <a href="/shop/product_detail/{{ i.id }}" class="title">{{ i.product_name }}</a>
+            <div class="price mt-1"> <i class="fa-solid fa-indian-rupee-sign"></i> {{i.price}}</div>
+          </figcaption>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+  </section>
+{% endblock %}
