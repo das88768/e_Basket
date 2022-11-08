@@ -76,6 +76,18 @@
         content: "\e1bc";
         padding-right: 1px;
     }
+    .dlist-align {
+        display: flex;
+    }
+    [class*=dlist-] {
+        margin-bottom: 5px;
+    }
+    .dlist-align dd {
+        flex-grow: 1;
+    }
+    [class*=dlist-] dd {
+        margin-bottom: 0;
+    }
 </style>
 {% endblock %}
 
@@ -163,7 +175,7 @@
                 </dl>
                 <hr>
                 <p class="text-center mb-3">
-                    <img src="./images/misc/payments.png" height="26">
+                    <img src="{% static 'images/payments.png' %}" height="26">
                 </p>
                 <a href="/shop/checkout/" class="btn btn-primary btn-block"> Checkout </a>
                 <a href="/shop/" class="btn btn-light btn-block">Continue Shopping</a>
