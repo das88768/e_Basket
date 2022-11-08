@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Fashion-category - eBasket {% endblock %}
+{% block title %} {{ cat }}-category - eBasket {% endblock %}
 
 
 {% block category_page_style %}
@@ -16,8 +16,8 @@
     <div class="container">
     
     <header class="section-heading">
-      <a href="./store.html" class="btn btn-outline-primary float-right">See all</a>
-      <h3 class="section-title">Fashion products</h3>
+      <a href="/shop/all_products" class="btn btn-outline-primary float-right">See all Products</a>
+      <h3 class="section-title">{{ cat }} products</h3>
     </header><!-- sect-heading -->
     
     <div class="row">

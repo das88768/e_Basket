@@ -224,13 +224,14 @@ def fasionPage(request):
 
     products = Product.objects.filter(category__name = "Fashion")
     category = Category.objects.all()
- 
+    cat = products[0].category
     context = {
         'product' : products,
         'cartItems' : cartItems,
-        'category' : category
+        'category' : category,
+        'cat' : cat
     }
-    return render(request, 'fashion.html', context)
+    return render(request, 'category_page.html', context)
 
 def electronicsPage(request):
     if request.user.is_authenticated:
@@ -245,13 +246,15 @@ def electronicsPage(request):
 
     products = Product.objects.filter(category__name = "Electronics")
     category = Category.objects.all()
+    cat = products[0].category
  
     context = {
         'product' : products,
         'cartItems' : cartItems,
-        'category' : category
+        'category' : category,
+        'cat' : cat
     }
-    return render(request, 'electronics.html', context)
+    return render(request, 'category_page.html', context)
 
 def mobilesPage(request):
     if request.user.is_authenticated:
@@ -266,13 +269,15 @@ def mobilesPage(request):
 
     products = Product.objects.filter(category__name = "Mobiles")
     category = Category.objects.all()
+    cat = products[0].category
  
     context = {
         'product' : products,
         'cartItems' : cartItems,
-        'category' : category
+        'category' : category,
+        'cat' : cat
     }
-    return render(request, 'mobiles.html', context)
+    return render(request, 'category_page.html', context)
 
 def booksPage(request):
     if request.user.is_authenticated:
@@ -287,13 +292,15 @@ def booksPage(request):
 
     products = Product.objects.filter(category__name = "Books")
     category = Category.objects.all()
+    cat = products[0].category
  
     context = {
         'product' : products,
         'cartItems' : cartItems,
-        'category' : category
+        'category' : category,
+        'cat' : cat
     }
-    return render(request, 'books.html', context)
+    return render(request, 'category_page.html', context)
 
 def home_accessories_and_furniturePage(request):
     if request.user.is_authenticated:
@@ -308,13 +315,15 @@ def home_accessories_and_furniturePage(request):
 
     products = Product.objects.filter(category__name = "Home_Accessories_and_Furnitures")
     category = Category.objects.all()
+    cat = products[0].category
  
     context = {
         'product' : products,
         'cartItems' : cartItems,
-        'category' : category
+        'category' : category,
+        'cat' : cat
     }
-    return render(request, 'homedeco.html', context)
+    return render(request, 'category_page.html', context)
 
 def all_products(request):
     if request.user.is_authenticated:
@@ -329,10 +338,12 @@ def all_products(request):
 
     products = Product.objects.all()
     category = Category.objects.all()
+    cat = "All Products"
  
     context = {
         'product' : products,
         'cartItems' : cartItems,
-        'category' : category
+        'category' : category,
+        'cat' : cat
     }
-    return render(request, 'all_products.html', context)
+    return render(request, 'category_page.html', context)
