@@ -144,7 +144,7 @@
             </div> <!-- price-wrap .// -->
         </td>
         <td class="text-right"> 
-        <a href="" class="btn btn-danger"> Remove</a>
+        <button data-product="{{ item.product.id }}" data-action="delete" class="btn btn-danger update-cart" type="button"> Remove</button>
         </td>
     </tr>
     {% endfor %}
