@@ -23,7 +23,7 @@ def index(request):
         order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
 
-    products = Product.objects.all()
+    products = Product.objects.all()[:16]
     category = Category.objects.all()
     context = {
         'product' : products,
@@ -313,3 +313,24 @@ def home_accessories_and_furniturePage(request):
         'category' : category
     }
     return render(request, 'homedeco.html', context)
+
+def all_products(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+
+    products = Product.objects.all()
+    category = Category.objects.all()
+ 
+    context = {
+        'product' : products,
+        'cartItems' : cartItems,
+        'category' : category
+    }
+    return render(request, 'all_products.html', context)
