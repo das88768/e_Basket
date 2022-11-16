@@ -240,9 +240,7 @@
                 </p>	
             </div>
         </article>
-    
-        
-    
+
         </div> <!-- col.// -->
     </div> <!-- row.// -->
     
@@ -251,53 +249,3 @@
     </section>
 
 {% endblock %}
-
-
-<!-- javascript to add shoping cart and handle all cart related functions -->
-<!-- <script>
-    console.log("Working");
-
-    // initialize the cart if the cart is empty
-    if(localStorage.getItem('cart') == null){
-      var cart = {};
-    }
-    else{
-      cart = JSON.parse(localStorage.getItem('cart'));
-      document.getElementById('cart').innerHTML = Object.keys(cart).length;
-    }
-    
-    // script function which track the id 'cart' and update the stored value 
-    $('.cart').click(function(){
-        console.log('clicked');
-        var idstr = this.id.toString();
-        console.log(idstr);
-
-        // if the clicked product does not in cart then add it
-        if(cart[idstr] != undefined){
-            cart[idstr] = cart[idstr] + 1;
-        }
-
-        // if the product is already present increment the quantity.
-        else{
-            cart[idstr] = 1;
-        }
-        console.log(cart);
-        localStorage.setItem('cart', JSON.stringify(cart));
-
-        // display the number of products in the cart
-        document.getElementById('cart').innerHTML = Object.keys(cart).length;
-    });
-
-    display_cart_products(cart);
-    function display_cart_products(cart){
-        console.log('Display cart products function  starts here...');
-        var popStr = "";
-
-        for(var item in cart){
-          popStr = popStr + document.getElementById('name' + item).innerHTML + " Qty: " + cart[item];
-        //   console.log(popStr);
-        }
-    }
-
-  </script> -->
-

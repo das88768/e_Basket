@@ -35,16 +35,14 @@
 							{% csrf_token %}
 							<div class="form-group">
 								<input type="text" class="form-control rounded-left" name="username" placeholder="Username" required>
-								<!-- {{ form.username }} -->
 							</div>
+
 							<div class="form-group d-flex">
 								<input type="password" class="form-control rounded-left" name="password" placeholder="Password"
 									required>
-								<!-- {{ form.password1 }} -->
 							</div>
+							
 							<div class="form-group">
-								<!-- <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get
-									Started</button> -->
 								<input class="btn login_btn btn-primary rounded submit p-3 px-5" type="submit" value="Login Account">
 							</div>
 						</form>

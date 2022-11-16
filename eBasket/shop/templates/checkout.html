@@ -42,10 +42,6 @@
                     <label>Name</label>
                     <input type="text" placeholder="name" class="form-control">
                 </div>
-                <!-- <div class="form-group col-sm-6">
-                    <label>Last name</label>
-                    <input type="text" placeholder="Type here" class="form-control">
-                </div> -->
                 <div class="form-group col-sm-6">
                     <label>Mobile No.</label>
                     <input type="text" value="+91" class="form-control">
@@ -87,18 +83,6 @@
                         <label>Country*</label>
                         <input type="text" name="country" placeholder="country.." class="form-control">
                     </div>
-                    <!-- <div class="form-group col-sm-4">
-                        <label>Building</label>
-                        <input type="text" placeholder="" class="form-control">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label>House</label>
-                        <input type="text" placeholder="Type here" class="form-control">
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label>Postal code</label>
-                        <input type="text" placeholder="" class="form-control">
-                    </div> -->
             </div> <!-- row.// -->
             <hr>
             <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">	
@@ -141,14 +125,7 @@
                     <h5>Items: {{ order.get_cart_items }}</h5>
                     <h5>Tax: <i class="fa-solid fa-indian-rupee-sign"></i>36.00</h5>
                     <h5>Total: <i class="fa-solid fa-indian-rupee-sign"></i>{{ order.total_amount_with_tax }}</h5>
-                </div>
-
-                <!-- <hr>
-                <p class="text-center mb-3">
-                    <img src="./images/misc/payments.png" height="26">
-                </p>
-                <a href="./place-order.html" class="btn btn-primary btn-block"> Place Order </a> -->
-                
+                </div>              
             </div> <!-- card-body.// -->
             </div> <!-- card.// -->
             </aside> <!-- col.// -->
