@@ -99,10 +99,9 @@ def product_view(request, id):
         cartItems = order['get_cart_items']
 
     category = Category.objects.all()
-    # print(products)
+    
     # Fetch a specific product with id and stores in product var.
     product = Product.objects.filter(id=id).values()
-    # print(product)
     context = {
         'product' : product[0],
         'category' : category,
@@ -110,16 +109,12 @@ def product_view(request, id):
     }
     
     return render(request, "product_detail.html", context)
-    # {'product':product[0]}
 
 # view which helps to change product quantity in the cart using js.
 def updateItem(request):
     data = json.loads(request.body)
     productId = data['productId']
     action = data['action']
-
-    # print('Action:', action)
-    # print('poroductId:', productId)
 
     customer = request.user.customer
     product = Product.objects.get(id=productId)
