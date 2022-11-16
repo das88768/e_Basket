@@ -1,0 +1,168 @@
+/* Navbar CSS starts here */
+#search_bar {
+    width: 500px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#search_btn {
+    margin: -8px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.padding-y-sm {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.img-wrap {
+    border-radius: 0.2rem 0.2rem 0 0;
+    height: 220px;
+    text-align: center;
+}
+
+.img-wrap img {
+    height: 100%;
+    max-width: 100%;
+    width: auto;
+    display: inline-block;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.rounded {
+    border-radius: 12.375px !important;
+}/* Navbar CSS ends here */
+
+/* Products card CSS start here. */
+.card-product-grid {
+    margin-bottom: 20px;
+}
+
+.info-wrap {
+    overflow: hidden;
+    padding: 18px 20px;
+}
+
+a.title {
+    color: #212529;
+    display: block;
+    text-decoration: none;
+    font-family: "Inter", Arial, "Helvetica Neue", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: transparent;
+}
+
+a.title:hover {
+    color: #d1481f;
+}
+
+.price {
+    font-weight: 600;
+    color: #212529;
+    font-family: "Inter", Arial, "Helvetica Neue", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.section-title {
+    color: #212529;
+    font-size: 1.75rem;
+    margin-left: 5px;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    line-height: 1.3;
+    font-family: "Inter", Arial, "Helvetica Neue", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.footer-bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.border-top {
+    border-top: 1px solid #e4e4e4 !important;
+}
+
+.text-muted {
+    color: #969696 !important;
+}
+
+body {
+    font-family: "Inter", Arial, "Helvetica Neue", "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.card-product-grid:hover {
+    box-shadow: 0px 4px 15px rgb(153 153 153 / 30%);
+    transition: 0.3s;
+}
+
+.d-block {
+    border-radius: 8px;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e4e4e4 !important;
+}
+
+.userinfo {
+    padding-right: 10px;
+    font-style: italic;
+}
+
+.log-inout {
+    text-decoration: none;
+    font-style: italic;
+} /* Products card CSS ends here. */
+  
+/* css for the cart component start here*/
+.widget-header {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    padding-right: 20px;
+}
+
+.icon-sm {
+    width: 48px;
+    height: 48px;
+    line-height: 48px !important;
+    font-size: 20px;
+    text-align: center;
+    color: #9ca2af;
+}
+
+.icon:hover {
+    color: #3167eb;
+}
+
+.cart-container {
+    display: flex;
+    align-items: center;
+}
+
+.widget-header .notify {
+    position: absolute;
+    top: 0px;
+    right: 10px
+}
+
+.notify {
+    display: inline-block;
+    padding: 0.25em 0.6em;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    border-radius: 3rem;
+    color: #fff;
+} /* css for the cart component ends here*/
