@@ -1,0 +1,83 @@
+.bg {
+    background-color: #f8f9fa;
+}
+.padding-y {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.itemside {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+figure {
+    margin-bottom: 0;
+}
+.align-items-center {
+    align-items: center !important;
+}
+.img-sm {
+    width: 80px;
+    height: 80px;
+}
+.itemside .info {
+    padding-left: 15px;
+    padding-right: 7px;
+}
+.table-shopping-cart.table td, .table-shopping-cart.table th {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+.table-borderless th, .table-borderless td, .table-borderless thead th, .table-borderless tbody + tbody {
+    border: 0;
+}
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+.input-spinner {
+    width: 125px;
+    flex-wrap: nowrap;
+    display: inline-flex;
+    vertical-align: middle;
+}
+.input-group {
+    align-items: stretch;
+}
+.input-spinner .btn {
+    width: 42px;
+    text-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.btn-light {
+    background-color: #fff;
+    border-color: #e4e4e4;
+}
+.table-shopping-cart .price {
+    font-weight: bold;
+    margin-right: 5px;
+    display: block;
+    font-size: 1rem;
+    font-family: fangsong;
+}
+var {
+    font-style: normal;
+}
+.fa-indian-rupee-sign:before, .fa-indian-rupee:before, .fa-inr:before {
+    content: "\e1bc";
+    padding-right: 1px;
+}
+.dlist-align {
+    display: flex;
+}
+[class*=dlist-] {
+    margin-bottom: 5px;
+}
+.dlist-align dd {
+    flex-grow: 1;
+}
+[class*=dlist-] dd {
+    margin-bottom: 0;
+}
