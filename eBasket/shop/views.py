@@ -91,12 +91,14 @@ def product_view(request, id):
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
         cartItems = order.get_cart_items
+        logged_in = 1
 
     # anonymous user can not add products to the cart.
     else:
         items = []
         order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
+        logged_in = 0
 
     category = Category.objects.all()
     
@@ -105,7 +107,8 @@ def product_view(request, id):
     context = {
         'product' : product[0],
         'category' : category,
-        'cartItems' : cartItems
+        'cartItems' : cartItems,
+        'user' : logged_in,
     }
     
     return render(request, "product_detail.html", context)

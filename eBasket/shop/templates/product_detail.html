@@ -133,6 +133,12 @@
     p:last-child {
         margin-bottom: 0;
     }
+    .hide {
+        display: none;
+    }
+    .hide2 {
+        display: none;
+    }
 </style>
 
 {% endblock %}
@@ -206,7 +212,15 @@
             </div>
         </div> <!-- row.// -->
         <hr>
-        <button data-product="{{ product.id }}" data-action="add" class="btn  btn-primary cart update-cart" id="pr{{ product.id }}"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </button>
+        <button onclick="give_msg()" data-product="{{ product.id }}" data-action="add" class="btn  btn-primary cart update-cart msg" id="pr{{ product.id }}"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </button>
+
+        <div class="alert alert-success hide" id="give-msg">
+            <strong>Added to the Cart!</strong>
+        </div>
+        <div class="alert alert-danger hide2" id="give-msg-red">
+            <strong>Please Login!</strong> Only logged-in user can add products to the cart.
+        </div>
+
     </article> <!-- product-info-aside .// -->
             </main> <!-- col.// -->
         </div> <!-- row.// -->
@@ -247,5 +261,22 @@
     
     </div> <!-- container .//  -->
     </section>
+
+{% endblock %}
+
+{% block js %}
+
+<script type="text/javascript">
+
+    var user_info = '{{ user }}'
+    function give_msg() {
+        if(user_info == 1)
+        document.getElementById('give-msg').classList.remove('hide')
+        if(user_info == 0)
+        document.getElementById('give-msg-red').classList.remove('hide2')
+    }
+
+</script>
+
 
 {% endblock %}

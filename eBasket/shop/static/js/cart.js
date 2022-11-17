@@ -9,8 +9,7 @@ for(var i=0; i < updateBtns.length; i++){
 }
 
 function updateUserOrder(productId, action){
-    console.log('sending data...')
-
+    
     var url = '/shop/update-item/'
 
     fetch(url, {
