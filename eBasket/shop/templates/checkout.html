@@ -94,7 +94,8 @@
         <div class="card-body hidden" id="payment-info">
             <div class="box-element">
                 <small>Paypal Options</small>
-                <button type="button" class="btn" id="make-payment">Make Payment</button>
+                <div id="paypal-button-container"></div>
+                <!-- <button type="button" class="btn" id="make-payment">Make Payment</button> -->
             </div>
         </div> <!-- card-body.// -->
     </article> <!-- card.// -->
@@ -139,10 +140,46 @@
 
 {% block js %}
 
+<!-- scripts which handle all payment request from the user in paypal -->
+<script src="https://www.paypal.com/sdk/js?client-id=AWMckHdUhuEg2OqAG51CFVfzx3XcovRK3ZqG36PuwsV_mt8VPp2YbcLk7X-WPUOmotT6MZxfHCd8Qy8G&currency=USD"></script>
+
+<script>
+    var total = '{{ order.total_amount_with_tax}}'
+
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+
+        // Set up the transaction
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: parseFloat(total).toFixed(1)
+                    }
+                }]
+            });
+        },
+
+        // Finalize the transaction
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(orderData) {
+                // Successful capture! For demo purposes:
+                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                var transaction = orderData.purchase_units[0].payments.captures[0];
+                // alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                submitFormData()
+            });
+        }
+
+
+    }).render('#paypal-button-container');
+</script>
+
+<!-- Main js scripts which handles checkout page information -->
 <script type="text/javascript">
 
     var user = '{{request.user}}'
-    var total = '{{ order.get_cart_total }}'
+    // var total = '{{ order.get_cart_total }}'
 
     if (user != 'AnonymousUser'){
         document.getElementById('contact-info').innerHTML = ''
@@ -160,9 +197,9 @@
     })
 
 
-    document.getElementById('make-payment').addEventListener('click', function(e){
-        submitFormData()
-    })
+    // document.getElementById('make-payment').addEventListener('click', function(e){
+    //     submitFormData()
+    // })
 
     function submitFormData(){
         console.log("Payment Button clicked")

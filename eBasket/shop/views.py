@@ -150,7 +150,11 @@ def processOrder(request):
         total = float(data['form']['total'])
         order.transaction_id = transaction_id
 
-        if total == order.get_cart_total:
+        print(total)
+        print(order.total_amount_with_tax)
+        print(total == order.total_amount_with_tax)
+ 
+        if total == order.total_amount_with_tax:
             order.complete = True
         order.save()
 
