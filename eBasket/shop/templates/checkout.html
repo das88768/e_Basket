@@ -40,15 +40,15 @@
             <div class="row">
                 <div class="form-group col-sm-6">
                     <label>Name</label>
-                    <input type="text" placeholder="name" class="form-control">
+                    <input type="text" name="fname" placeholder="name" class="form-control">
                 </div>
                 <div class="form-group col-sm-6">
                     <label>Mobile No.</label>
-                    <input type="text" value="+91" class="form-control">
+                    <input type="text" value="+91" name="mobile" class="form-control">
                 </div>
                 <div class="form-group col-sm-6">
                     <label>Email</label>
-                    <input type="email" placeholder="example@gmail.com" class="form-control">
+                    <input type="email" name="email" placeholder="example@gmail.com" class="form-control">
                 </div>
             </div> <!-- row.// -->	
         </form>
@@ -93,9 +93,9 @@
     <article class="card mb-4">
         <div class="card-body hidden" id="payment-info">
             <div class="box-element">
-                <small>Paypal Options</small>
+                <small>Razorpay Option</small>
                 <div id="paypal-button-container"></div>
-                <!-- <button type="button" class="btn" id="make-payment">Make Payment</button> -->
+                <button type="button" class="btn make-payment" id="rzp-button1">Pay with Razorpay</button>
             </div>
         </div> <!-- card-body.// -->
     </article> <!-- card.// -->
@@ -140,39 +140,50 @@
 
 {% block js %}
 
-<!-- scripts which handle all payment request from the user in paypal -->
-<script src="https://www.paypal.com/sdk/js?client-id=AWMckHdUhuEg2OqAG51CFVfzx3XcovRK3ZqG36PuwsV_mt8VPp2YbcLk7X-WPUOmotT6MZxfHCd8Qy8G&currency=USD"></script>
-
+<!-- scripts which handle all payment request from the user in razorpay -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-    var total = '{{ order.total_amount_with_tax}}'
-
-    // Render the PayPal button into #paypal-button-container
-    paypal.Buttons({
-
-        // Set up the transaction
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: parseFloat(total).toFixed(1)
-                    }
-                }]
-            });
+    var total = '{{ order.total_amount_with_tax }}'
+    var options = {
+        "key": 'rzp_test_vWCHJvEZxYJNX5', // Enter the Key ID generated from the Dashboard
+        // "amount": '{{payment.amount}}', // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "eBasket",
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        "order_id": "{{payment.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "handler": function (response){
+            alert(response.razorpay_payment_id);
+            alert(response.razorpay_order_id);
+            alert(response.razorpay_signature);
+            submitFormData()
         },
-
-        // Finalize the transaction
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(orderData) {
-                // Successful capture! For demo purposes:
-                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                var transaction = orderData.purchase_units[0].payments.captures[0];
-                // alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-                submitFormData()
-            });
+        "prefill": {
+            "name": '{{ customer.name }}',
+            "email": '{{ customer.email }}',
+            "contact": '1234567890'
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
         }
-
-
-    }).render('#paypal-button-container');
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response){
+            alert(response.error.code);
+            alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id);
+    });
+    document.getElementById('rzp-button1').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
 </script>
 
 <!-- Main js scripts which handles checkout page information -->
@@ -181,9 +192,9 @@
     var user = '{{request.user}}'
     // var total = '{{ order.get_cart_total }}'
 
-    if (user != 'AnonymousUser'){
-        document.getElementById('contact-info').innerHTML = ''
-    }
+    // if (user != 'AnonymousUser'){
+    //     document.getElementById('contact-info').innerHTML = ''
+    // }
 
     var form = document.getElementById('form')
 
@@ -197,7 +208,8 @@
     })
 
 
-    // document.getElementById('make-payment').addEventListener('click', function(e){
+    // document.getElementById('rzp-button1').addEventListener('click', function(e){
+    //     console.log("Payment Button clicked")
     //     submitFormData()
     // })
 

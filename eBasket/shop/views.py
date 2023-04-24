@@ -9,6 +9,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.conf import settings
+import razorpay
 
 # Create your views here.
 # create the view of 'home page' page
@@ -79,8 +81,29 @@ def checkout(request):
         order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
 
+    # Razorpay client setup for payment.
+    rzp_id_key = settings.RZP_ID_KEY
+    client = razorpay.Client(auth=(settings.RZP_ID_KEY, settings.RZP_SECRET_KEY))
+
+    data = {
+        "amount": int(order.total_amount_with_tax)*100,   
+        "currency": "INR",
+        "receipt": "order_rcptid_11",
+        "notes": {"user": str(customer.user), "name": customer.name, "email": customer.email},
+        "payment_capture": 1,
+    }
+    payment = client.order.create(data=data)
+
+    order.razorpay_order_id = payment['id']
+    order.save()
+
+    print("*************")
+    print(payment)
+    # print(customer.mobile)
+    print("*************")
+
     # provides the ordered products data to the checkout page
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'rzp_id_key':rzp_id_key, "payment": payment, 'customer': customer}
     return render(request, "checkout.html", context)
 
 # create the view of a specific product, page

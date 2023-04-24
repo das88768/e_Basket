@@ -36,6 +36,11 @@ class Order(models.Model):
     complete = models.BooleanField(default=False, null=True, blank=False)
     transaction_id = models.CharField(max_length=200, null=True)
 
+    # Store razorpay payment_id, order_id and signature for authentication.
+    razorpay_payment_id = models.CharField(max_length=200, null=True, blank=True)
+    razorpay_order_id = models.CharField(max_length=200, null=True, blank=True)
+    razorpay_signature = models.CharField(max_length=200, null=True, blank=True)
+
     def __str__(self):
         return str(self.id)
 

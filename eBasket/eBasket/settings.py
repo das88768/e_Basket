@@ -131,3 +131,7 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Razorpay keys to handle payments.
+RZP_SECRET_KEY = "CyTEzui6WJ44eOTtKh1CUCLo"
+RZP_ID_KEY = "rzp_test_vWCHJvEZxYJNX5"
