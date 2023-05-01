@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -133,5 +134,10 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Razorpay keys to handle payments.
-RZP_SECRET_KEY = "CyTEzui6WJ44eOTtKh1CUCLo"
-RZP_ID_KEY = "rzp_test_vWCHJvEZxYJNX5"
+# Keys are fetched from .env file.
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
+RZP_SECRET_KEY = os.environ['KEY_SECRET']
+RZP_ID_KEY = os.environ['KEY_ID']
