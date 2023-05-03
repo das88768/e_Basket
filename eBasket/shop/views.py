@@ -117,10 +117,10 @@ def checkout(request):
     order.razorpay_order_id = payment['id']
     order.save()
 
-    print("*************")
-    print(payment)
+    # print("*************")
+    # print(payment)
     # print(customer.mobile)
-    print("*************")
+    # print("*************")
 
     # provides the ordered products data to the checkout page
     context = {'items':items, 'order':order, 'cartItems':cartItems, 'rzp_id_key':rzp_id_key, "payment": payment, 'customer': customer}
