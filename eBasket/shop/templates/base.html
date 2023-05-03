@@ -17,9 +17,8 @@
     {% block category_page_style %}
     {% endblock %}
 
+    <!-- javascript logic to accept token when a post request is made -->
     <script type="text/javascript">
-      // var user = '{{request.user}}'
-
       function getToken(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -102,6 +101,7 @@
           <button id="search_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
 
+        <!-- login and logout option and greet the user after login -->
         {% if request.user.is_anonymous == True %}
           <span class="userinfo">Hello, Guest</span>
           <span class="log-inout"><a href="{% url 'login' %}">Login</a></span>
@@ -140,7 +140,7 @@
             <i class="fab fa-lg fa-cc-mastercard"></i>
           </div>
         </section>
-      </div><!-- //container -->
+      </div>
     </footer>
 
     <!-- Optional JavaScript -->
