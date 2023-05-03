@@ -64,7 +64,9 @@ def orders(request):
         order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
     
-    context = {'items':items, 'order':order, 'cartItems':cartItems, 'complete_orders':complete_orders}
+    category = Category.objects.all()
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'category' : category, 'complete_orders':complete_orders}
     return render(request, "orders.html", context)
 
 # create the view of the cart page    
@@ -82,7 +84,9 @@ def cart(request):
         order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    category = Category.objects.all()
+
+    context = {'items':items, 'order':order, 'category' : category, 'cartItems':cartItems}
     return render(request, "cart.html", context)
 
 # create the view of checkout page
