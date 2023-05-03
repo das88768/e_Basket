@@ -23,4 +23,5 @@ urlpatterns = [
     path("books/", views.booksPage, name="books"),
     path("home_accessories_and_furnitures/", views.home_accessories_and_furniturePage, name="homedecor"),
     path("all_products/", views.all_products, name="all_products"),
+    path("orders/", views.orders, name="orders"),
 ]

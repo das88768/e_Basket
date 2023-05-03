@@ -51,6 +51,22 @@ def search_product(request):
 def track_order(request):
     return HttpResponse("This is track page.")
 
+# Here user can see his previous orders or orders made currently.
+def orders(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        complete_orders = OrderItem.objects.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+    
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'complete_orders':complete_orders}
+    return render(request, "orders.html", context)
+
 # create the view of the cart page    
 def cart(request):
     # if user is logged in, he will see the ordered products.

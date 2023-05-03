@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} orders - eBasket {% endblock %}
+
+{% block page_style %}
+    <link rel="stylesheet" href="{% static 'css/orders_style.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<section class="section-content padding-y bg">
+    <div class="container">
+    
+    <!-- ============================ COMPONENT 1 ================================= -->
+    
+    <div class="row">
+        <aside class="col-lg-9">
+    <div class="card">
+    <table class="table table-borderless table-shopping-cart">
+    <thead class="text-muted">
+    <tr class="small text-uppercase" style="text-align: center;">
+      <th scope="col">Product</th>
+      <th scope="col" id="special-case" width="120">Quantity</th>
+      <th scope="col" width="120">Price</th>
+      <th scope="col" width="120">Orderd Date</th>
+      <th scope="col" width="200">Order Id</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <!-- Edit code from here to display the compeleted orders only -->
+    {% for p in complete_orders %}
+        {% if p.order.complete == True %}
+            <tr>
+                <td>
+                    <figure class="itemside align-items-center">
+                        <div class="aside"><img src="/media/{{p.product.image}}" class="img-sm"></div>
+                        <figcaption class="info">
+                            <a href="#" class="title text-dark">{{ p.product }}</a>
+                        </figcaption>
+                    </figure>
+                </td>
+                <td> 
+                    <!-- col.// -->
+                                <div class="col" style="text-align: center;"> 
+                                    <div class="input-group input-spinner">
+                                        <div class="input-group-prepend">
+                                        <input type="text" class="form-control"  value="{{ p.quantity }}" readonly>
+                                        <div class="input-group-append">
+                                    </div> <!-- input-group.// -->
+                                </div> <!-- col.// -->
+                </td>
+                <td> 
+                    <div class="price-wrap"> 
+                        <var class="price"><i class="fa-solid fa-indian-rupee-sign"></i>{{ p.get_total }}</var> 
+                        <small class="text-muted"><i class="fa-solid fa-indian-rupee-sign"></i>{{ p.product.price }} each</small> 
+                    </div> <!-- price-wrap .// -->
+                </td>
+                <td>
+                    <div>
+                        <p class="order-date">{{ p.order.date_orderd}}</p>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <!-- <input type="text" class="form-control order-id-width" value="{{ p.order.razorpay_order_id }}" readonly> -->
+                        <p class="order-id-width">{{ p.order.razorpay_order_id }}</p>
+                    </div>
+                </td>
+            </tr>
+
+        {% endif %}
+        
+    {% endfor %}
+    </tbody>
+    </table>
+    </div> <!-- card.// -->
+    
+        </aside> <!-- col.// -->
+        <aside class="col-lg-3">
+    
+            
+    
+    
+    </div> <!-- row.// -->
+    <!-- ============================ COMPONENT 1 END .// ================================= -->
+    
+    </div> <!-- container .//  -->
+</section>
+
+{% endblock %}
