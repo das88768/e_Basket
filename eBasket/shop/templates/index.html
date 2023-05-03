@@ -74,6 +74,7 @@
           <button id="search_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
        
+        <!-- login and logout option and greet the user after login -->
         {% if request.user.is_anonymous == True %}
           <span class="userinfo">Hello, Guest | </span>
           <span class="log-inout"><a href="{% url 'login' %}">Login</a></span>
@@ -92,10 +93,9 @@
       </div>
     </nav>
 
-    <!-- Banner row -->
+    <!-- Banner row or carousel -->
     <section class="section-intro padding-y-sm">
       <div class="container">
-      
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -122,19 +122,20 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-      
-      </div> <!-- container //  -->
+      </div>
     </section>
 
-    <!-- Row of items -->
+    <!-- Items row start from here -->
     <section class="section-name padding-y-sm">
       <div class="container">
       
+      <!-- link to more products -->
       <header class="section-heading">
         <a href="/shop/all_products" class="btn btn-outline-primary float-right">See all products</a>
         <h3 class="section-title">Popular products</h3>
-      </header><!-- sect-heading -->
+      </header>
       
+      <!-- present all the products on a card one by one from the database -->
       <div class="row">
         {% for i in product %}
         <div class="col-md-3">
@@ -169,7 +170,7 @@
             <i class="fab fa-lg fa-cc-mastercard"></i>
           </div>
         </section>
-      </div><!-- //container -->
+      </div>
     </footer>
 
     <!-- Optional JavaScript -->
