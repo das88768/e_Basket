@@ -51,7 +51,7 @@ def search_product(request):
 def track_order(request):
     return HttpResponse("This is track page.")
 
-# Here user can see his previous orders or orders made currently.
+# Here user can see there previous orders or orders made currently.
 def orders(request):
     if request.user.is_authenticated:
         customer = request.user.customer
