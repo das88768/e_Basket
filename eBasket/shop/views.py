@@ -106,7 +106,7 @@ def checkout(request):
     client = razorpay.Client(auth=(settings.RZP_ID_KEY, settings.RZP_SECRET_KEY))
 
     data = {
-        "amount": int(order.total_amount_with_tax)*100,                       
+        "amount": 1*100,                          # int(order.total_amount_with_tax)
         "currency": "INR",
         "receipt": "order_rcptid_11",
         "notes": {"user": str(customer.user), "name": customer.name, "email": customer.email},

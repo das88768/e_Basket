@@ -26,10 +26,6 @@
 
 <section class="section-content padding-y bg">
     <div class="container">
-    
-    
-    
-    <!-- ============================ COMPONENT 2 ================================= -->
     <div class="row">
         <main class="col-md-8">
     
@@ -50,10 +46,10 @@
                     <label>Email</label>
                     <input type="email" name="email" placeholder="example@gmail.com" class="form-control">
                 </div>
-            </div> <!-- row.// -->	
+            </div>	
         </form>
-    </div> <!-- card-body.// -->
-    </article> <!-- card.// -->
+    </div>
+    </article>
     
     
     <article class="card mb-4">
@@ -83,12 +79,12 @@
                         <label>Country*</label>
                         <input type="text" name="country" placeholder="country.." class="form-control">
                     </div>
-            </div> <!-- row.// -->
+            </div>
             <hr>
             <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">	
         </form>
-    </div> <!-- card-body.// -->
-    </article> <!-- card.// -->
+    </div>
+    </article>
 
     <article class="card mb-4">
         <div class="card-body hidden" id="payment-info">
@@ -97,12 +93,11 @@
                 <div id="paypal-button-container"></div>
                 <button type="button" class="btn make-payment" id="rzp-button1">Pay with Razorpay</button>
             </div>
-        </div> <!-- card-body.// -->
-    </article> <!-- card.// -->
+        </div>
+    </article>
     
-    <!-- accordion end.// -->
       
-            </main> <!-- col.// -->
+            </main>
             <aside class="col-md-4">
                 <div class="card">
             <div class="card-body">
@@ -127,13 +122,12 @@
                     <h5>Tax: <i class="fa-solid fa-indian-rupee-sign"></i>36.00</h5>
                     <h5>Total: <i class="fa-solid fa-indian-rupee-sign"></i>{{ order.total_amount_with_tax }}</h5>
                 </div>              
-            </div> <!-- card-body.// -->
-            </div> <!-- card.// -->
-            </aside> <!-- col.// -->
-        </div> <!-- row.// -->
+            </div>
+            </div>
+            </aside>
+        </div>
     
-        <!-- ============================ COMPONENT 2 END//  ================================= -->
-    </div> <!-- container .//  -->
+    </div>
 </section>
 
 {% endblock %}
@@ -146,7 +140,7 @@
     var total = '{{ order.total_amount_with_tax }}'
     var options = {
         "key": 'rzp_test_vWCHJvEZxYJNX5', // Enter the Key ID generated from the Dashboard
-        // "amount": '{{payment.amount}}', // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        // "amount": '{{payment.amount}}', // Amount is in currency subunits. Default currency is INR. Example, 50000 refers to 50000 paise
         "currency": "INR",
         "name": "eBasket",
         "description": "Test Transaction",
