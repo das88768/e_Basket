@@ -52,7 +52,7 @@ class Order(models.Model):
 
     @property
     def total_amount_with_tax(self):
-        tax_amount = decimal.Decimal('36.00')
+        tax_amount = decimal.Decimal('0.00')
         total_price = self.get_cart_total
         total_amount = tax_amount + total_price
         return total_amount

@@ -34,7 +34,7 @@
         <var class="price h4" style="font-family: monospace; font-size: 1.8rem;"><i class="fa-solid fa-indian-rupee-sign"></i> {{ product.price }}</var> 
     </div> 
     
-    <p>{{ product.description }}</p>
+    <!-- <p>{{ product.description }}</p> -->
     
     
     <hr>
@@ -97,24 +97,22 @@
                 <div class="col-md-9">
     
         <header class="section-heading">
-            <h3>Customer Reviews </h3>  
+            <h3>Product Description</h3>  
             
         </header>
     
         <article class="box mb-3">
             <div class="icontext w-100">
-                <img src="{% static 'images/avatar2.jpg' %}" class="img-xs icon rounded-circle" style="width: 40px;">
+                <!-- <img src="{% static 'images/avatar2.jpg' %}" class="img-xs icon rounded-circle" style="width: 40px;"> -->
                 <div class="text">
-                    <span class="date text-muted float-md-right">24.04.2020 </span>  
-                    <h6 class="mb-1">Mike John </h6>
+                    <!-- <span class="date text-muted float-md-right">24.04.2020 </span>  
+                    <h6 class="mb-1">Mike John </h6> -->
                     
                 </div>
             </div>
             <div class="mt-3">
                 <p style="color: #343a40;">
-                    Dummy comment Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    {{ product.description }}
                 </p>	
             </div>
         </article>

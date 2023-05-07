@@ -1,3 +1,17 @@
+.spl-hgt {
+    height:91px;
+}
+
+.nb-items {
+    align-items: flex-end;
+    padding-left: 30px;
+}
+
+.srh-form {
+    position: absolute;
+    left: 495px;
+}
+
 #search_bar {
     width: 500px;
     border-top-right-radius: 0px;
@@ -15,6 +29,7 @@
     flex-wrap: wrap;
     margin-right: -10px;
     margin-left: -10px;
+    justify-content: space-around;
 }
 
 .container { 
@@ -61,11 +76,13 @@ body {
 .userinfo {
     padding-right: 10px;
     font-style: italic;
+    padding-bottom: 7px;
 }
 
 .log-inout {
     text-decoration: none;
     font-style: italic;
+    padding-bottom: 7px;
 }
 
 /* css for the cart component starts here*/
@@ -109,3 +126,10 @@ body {
     border-radius: 3rem;
     color: #fff;
 } /* css for the cart component starts here*/
+
+.logo {
+    width: 166px;
+    height: 100px;
+    padding-top: 17px;
+    padding-bottom: 21px;
+}

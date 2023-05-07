@@ -36,10 +36,19 @@ def index(request):
 
 # create the view of 'about us' page
 def about_us(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        complete_orders = OrderItem.objects.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+    
     category = Category.objects.all()
-    context = {
-        'category' : category,
-    }
+    context = {'items':items, 'order':order, 'cartItems':cartItems, 'category' : category, 'complete_orders':complete_orders}
     return render(request, "about.html", context)
 
 def contact_us(request):

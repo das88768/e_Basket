@@ -1,4 +1,18 @@
 /* Navbar CSS starts here */
+.spl-hgt {
+    height:91px;
+}
+
+.nb-items {
+    align-items: flex-end;
+    padding-left: 30px;
+}
+
+.srh-form {
+    position: absolute;
+    left: 495px;
+}
+
 #search_bar {
     width: 500px;
     border-top-right-radius: 0px;
@@ -118,11 +132,13 @@ body {
 .userinfo {
     padding-right: 10px;
     font-style: italic;
+    padding-bottom: 7px;
 }
 
 .log-inout {
     text-decoration: none;
     font-style: italic;
+    padding-bottom: 7px;
 } /* Products card CSS ends here. */
   
 /* css for the cart component start here*/
@@ -166,3 +182,28 @@ body {
     border-radius: 3rem;
     color: #fff;
 } /* css for the cart component ends here*/
+
+.logo {
+    width: 166px;
+    height: 100px;
+    padding-top: 17px;
+    padding-bottom: 21px;
+}
+
+.all-products {
+    display: flex;
+    justify-content: center;
+}
+
+.inverse-btn {
+    color: #fff;
+    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+    transition: .5s;
+    background-size: 200% auto; 
+}
+
+.inverse-btn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}

@@ -1,9 +1,49 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %} My About Page {% endblock %}
 
 <!-- {% block css %} 
 
 {% endblock %} -->
 
-{% block body %} This is template inheritance of about page {% endblock %}
+{% block body %}
+
+
+<div class="bg-light">
+    <div class="container py-5">
+        <div class="row h-100 align-items-center py-5">
+            <div class="col-lg-6">
+                <h1 class="display-4">About us</h1>
+                <p class="lead text-muted mb-0">eBasket is a one stop shop for all your lifestyle and fashion
+                    needs. Where you can find all types of gadgets, like Mobile, Computers, Laptop, Smartwatches,
+                    airpods etc.</p>
+
+                <p class="lead text-muted">eBasket aims to providing a seemless free and enjoyable shopping
+                    experience to shoppers across the country with the widest range of brands and products on its
+                    portal.</a>
+                </p>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block"><img
+                    src="{% static 'images/img3.png' %}" alt="" class="img-fluid"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6 order-2 order-lg-1">
+            <h2 class="font-weight-light">Value proposition</h2>
+            <p class="font-italic text-muted mb-6">eBasket's value proposition revolves around giving consumers
+                the power and ease of purchasing fashion and lifestyle products online.</p>
+        </div>
+        <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img
+                src="{% static 'images/img3.jpg' %}" alt="" class="img-fluid mb-4 mb-lg-0">
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

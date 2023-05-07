@@ -70,13 +70,13 @@
     </nav>
 
     <!-- Second header navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-4 border-bottom">
-      <a class="navbar-brand" href="/shop/">eBasket</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-4 border-bottom spl-hgt">
+      <a class="navbar-brand" href="/shop/"><img class="logo" src="{% static 'images/banners/logo.png' %}" alt="logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse nb-items" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -96,7 +96,7 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" style="position: absolute;left: 371px;">
+        <form class="form-inline my-2 my-lg-0 srh-form">
           <input id="search_bar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button id="search_btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
@@ -125,14 +125,103 @@
     <!-- Footer starts hear -->
     <footer class="section-footer border-top">
       <div class="container">
+
+        <section class="" style="background-color: rgba(255, 255, 255, 0);">
+
+
+          <div class="text-center p-1">
+          </div>
+  
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Help
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Contact Us</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Track Order</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">FAQs</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Returns & Refunds</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">
+                Company
+              </h6>
+              <p>
+                <a href="/shop/about" class="text-reset">About Us</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Account</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Orders</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Careers</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+  
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">
+                Social
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Facebook</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Instagram</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Twitter</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Youtube</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">More Info</h6>
+              <p><i class="fas fa-home me-3 text-secondary"></i> Berhampore, Murshidabad, India</p>
+              <p>
+                <i class="fas fa-envelope me-3 text-secondary"></i>
+                contact@ebasket.com
+              </p>
+              <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 222 333 44</p>
+              <p><i class="fas fa-print me-3 text-secondary"></i> + 01 555 666 77</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+
+
+
+
         <section class="footer-bottom border-top row">
           <div class="col-md-2">
             <p class="text-muted" style="margin-bottom: 0px; width: 180px;"> <i class="fa-solid fa-copyright"></i> 2022 eBasket </p>
           </div>
           <div class="col-md-8 text-md-center" style="color: #343a40;">
-            <span  class="px-2">smaple@gmail.com</span>
-            <span  class="px-2">+91-629-5402-102</span>
-            <span  class="px-2">Lake Jackson 108, Houston Texas</span>
+
           </div>
           <div class="col-md-2 text-md-right text-muted">
             <i class="fab fa-lg fa-cc-visa"></i>
@@ -140,7 +229,7 @@
             <i class="fab fa-lg fa-cc-mastercard"></i>
           </div>
         </section>
-      </div>
+      </div><!-- //container -->
     </footer>
 
     <!-- Optional JavaScript -->
