@@ -29,6 +29,13 @@
     flex-wrap: wrap;
     margin-right: -10px;
     margin-left: -10px;
+}
+
+.row-2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-left: -10px;
     justify-content: space-around;
 }
 
