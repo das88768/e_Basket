@@ -18,6 +18,38 @@
     .hidden {
         display: none !important;
     }
+
+    .padding-y {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .pay-btn {
+        width: 172px;
+        height: 47px;
+    }
+
+    #rzp-button1 {
+        background-image: linear-gradient(to right, #9accd7 0%, #64c9f1 51%, #9ad9e8 100%);
+        transition: .5s;
+        background-size: 200% auto;    
+    }
+
+    #rzp-button1:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #payment-info {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .rzp-icon {
+        width: 125px;
+        height: 71px;
+    }
 </style>
 
 {% endblock %}
@@ -88,10 +120,11 @@
 
     <article class="card mb-4">
         <div class="card-body hidden" id="payment-info">
+            <img class="rzp-icon" src="{% static 'images/rzp-icon.png' %}">
             <div class="box-element">
                 <small>Razorpay Option</small>
                 <div id="paypal-button-container"></div>
-                <button type="button" class="btn make-payment" id="rzp-button1">Pay with Razorpay</button>
+                <button type="button" class="btn make-payment" id="rzp-button1"><img class="pay-btn" src="{% static 'images/rzp1.png' %}"></button>
             </div>
         </div>
     </article>
