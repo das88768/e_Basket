@@ -177,7 +177,7 @@
         "currency": "INR",
         "name": "eBasket",
         "description": "Test Transaction",
-        "image": "https://example.com/your_logo",
+        "image": "{% static 'images/banners/logo.png' %}",
         "order_id": "{{payment.id}}",
         "handler": function (response){
             alert(response.razorpay_payment_id);
