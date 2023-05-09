@@ -68,15 +68,15 @@
             <div class="row">
                 <div class="form-group col-sm-6">
                     <label>Name</label>
-                    <input type="text" name="fname" placeholder="name" class="form-control">
+                    <input type="text" name="fname" placeholder="{{ customer.name }}" class="form-control" readonly>
                 </div>
                 <div class="form-group col-sm-6">
                     <label>Mobile No.</label>
-                    <input type="text" value="+91" name="mobile" class="form-control">
+                    <input type="text" name="mobile" id="phone" class="form-control">
                 </div>
                 <div class="form-group col-sm-6">
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="example@gmail.com" class="form-control">
+                    <input type="email" name="email" placeholder="{{ customer.email }}" class="form-control" readonly>
                 </div>
             </div>	
         </form>
