@@ -17,6 +17,7 @@ class Product(models.Model):
     description = models.TextField()
     publication_date = models.DateField()
     image = models.ImageField(upload_to = "shop/images", default="")
+    image2 = models.ImageField(upload_to = "shop/images", default="", blank=True, null=True)
 
     def __str__(self):
         return self.product_name

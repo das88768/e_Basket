@@ -159,3 +159,19 @@ p:last-child {
 .hide2 {
     display: none;
 }
+
+.img-stl {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-color {
+    filter: invert(100%)
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
